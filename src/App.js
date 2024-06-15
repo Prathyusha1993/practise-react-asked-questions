@@ -1,25 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import ReusableModalComp from "./components/ReusableModalComp";
+import FormValidation from "./components/FormValidation";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h4>Practising Most Asked Interview Coding Challenges</h4>
+      <ReusableModalComp />
+      <FormValidation />
     </div>
   );
-}
+};
 
 export default App;
