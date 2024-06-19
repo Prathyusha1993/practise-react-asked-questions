@@ -4,6 +4,7 @@ import ReusableModalComp from "./components/ReusableModalComp";
 import FormValidation from "./components/FormValidation";
 import CounterComp from "./components/CounterComp";
 import TodoAppComp from "./components/TodoAppComp";
+import DataFetchingComp from "./components/DataFetchingComp";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <FormValidation />
       <CounterComp />
       <TodoAppComp />
+      <DataFetchingComp />
     </div>
   );
 };
