@@ -9,7 +9,7 @@ const DataFetchingComp = () => {
         fetch('https://jsonplaceholder.typicode.com/posts')
         .then(res => res.json())
         .then(data => {
-            setData(data);
+            setData(data.slice(0, 3));
             setLoading(false);
             setError('');
         })
@@ -27,8 +27,8 @@ const DataFetchingComp = () => {
         <ul>
             {data.map((post) => (
                 <li key={post.id}>
-                    <h3>Title:</h3> {post.title}
-                    <h3>Body:</h3> {post.body}
+                    <h5>Title:</h5> {post.title}
+                    <h5>Body:</h5> {post.body}
                 </li>
             ))}
         </ul>
