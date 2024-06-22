@@ -9,6 +9,8 @@ import DataFetchingComp from "./components/DataFetchingComp";
 import WeatherApi from "./components/WeatherApi";
 import SimpleNavigation from "./components/ReactRouter/SimpleNavigation";
 import DynamicRoute from "./components/DynamicRouting/DynamicRoute";
+import ThemeApp from "./components/ThemeToggle/ThemeApp";
+import EcommerceProductListing from "./components/EcommerceProductListing";
 
 const App = () => {
   return (
@@ -24,6 +26,8 @@ const App = () => {
       <WeatherApi />   
       <SimpleNavigation />
       <DynamicRoute />
+      <ThemeApp />
+      <EcommerceProductListing />
     </div>
   );
 };
