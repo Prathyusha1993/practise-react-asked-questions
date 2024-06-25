@@ -11,7 +11,8 @@ import SimpleNavigation from "./components/ReactRouter/SimpleNavigation";
 import DynamicRoute from "./components/DynamicRouting/DynamicRoute";
 import ThemeApp from "./components/ThemeToggle/ThemeApp";
 import EcommerceProductListing from "./components/EcommerceProductListing";
-import ChatApp from "./components/ChatApp";
+// import ChatApp from "./components/ChatApp";
+import AuthApp from "./components/AuthApp";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
       <ThemeApp />
       <EcommerceProductListing />
       {/* <ChatApp /> */}
+      <AuthApp />
     </div>
   );
 };
