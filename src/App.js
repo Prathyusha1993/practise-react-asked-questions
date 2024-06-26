@@ -13,6 +13,8 @@ import ThemeApp from "./components/ThemeToggle/ThemeApp";
 import EcommerceProductListing from "./components/EcommerceProductListing";
 // import ChatApp from "./components/ChatApp";
 import AuthApp from "./components/AuthApp";
+import CountEx from "./components/CountEx";
+import TrafficLight from "./components/TrafficLight";
 
 const App = () => {
   return (
@@ -32,6 +34,8 @@ const App = () => {
       <EcommerceProductListing />
       {/* <ChatApp /> */}
       <AuthApp />
+      <CountEx />
+      <TrafficLight />
     </div>
   );
 };
