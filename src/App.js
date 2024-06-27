@@ -15,6 +15,7 @@ import EcommerceProductListing from "./components/EcommerceProductListing";
 import AuthApp from "./components/AuthApp";
 import CountEx from "./components/CountEx";
 import TrafficLight from "./components/TrafficLight";
+import MemoizationEx from "./components/MemoizationEx";
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
       <AuthApp />
       <CountEx />
       <TrafficLight />
+      <MemoizationEx />
     </div>
   );
 };
