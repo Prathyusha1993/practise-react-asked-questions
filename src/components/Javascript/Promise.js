@@ -1,4 +1,3 @@
-import { resolvePath } from "react-router-dom";
 
 const ride = new Promise((resolve, reject) => {
     if(arrived) {
@@ -15,12 +14,12 @@ ride.then((value) => {
 .catch((error) => {
     console.log(error)
 })
-.finally(() => {
+.finally(() => {  //method can be useful if you want to do some processing or cleanup once the promise is settled, regardless of its outcome.
     console.log('all settled!');
 })
 
 
-let p = new Promise((reoslve, reject) => {
+let p = new Promise((resolve, reject) => {
     let a = 1+1;
     if(a === 2){
         resolve('success');
@@ -51,7 +50,7 @@ function watchTutorialPromise(){
                 message: 'WebDevSimplified < Cat'
             })
         } else {
-            reoslve('Thums up and subcribe');
+            resolve('Thums up and subcribe');
         }
     })
 }
@@ -83,7 +82,7 @@ Promise.all([ //it returns all the values
     console.log(error);
 })
 
-Promise.race([ //it returns only one value
+Promise.race([ //eventual state of the first promise that settles. it returns only one value
     recordVideoOne,
     recordVideoTwo,
     recordVideoThree
@@ -92,3 +91,90 @@ Promise.race([ //it returns only one value
 }).catch((error) => {
     console.log(error);
 })
+
+Promise.allSettled([ //takes iterable of promises as input and returns single promise
+    recordOne,
+    recordTwo,
+    recordThree
+    ]).then((mesg) => {mesg.forEach((msg) => console.log(msg.status))})
+    .catch((error) => console.log(error));
+    
+    Promise.any([ //this returned promise fulfills when any of the input's promises fulfills with the first fulfillement value.
+    recordOne,
+    recordTwo,
+    recordThree
+    ]).then((mesg) => {console.log(mesg)})
+    .catch((error) => console.log(error));
+
+
+//example
+const getFruits = new Promise((resolve, reject) => {
+    if(fruits) {
+        resolve('Fruits are available');
+    } else {
+        reject('Fruits are not available');
+    }
+})
+
+getFruits.then((message) => {
+    console.log('Success: ' + message);
+}).catch((error) => {
+    console.log('Error: ' + error);
+})
+
+//example
+const cart = ['shoes', 'pants', 'shirt'];
+createOrder(cart, function(orderId) {
+  proceedToPayment(orderId, function(paymentInfo) {
+    showOrderSummary(paymentInfo, function() {
+        updateWalletBalance();
+    });
+  });
+}); //this is a callback hell
+
+const promise = createOrder(cart);
+promise.then((orderId) => {
+  proceedToPayment(orderId);
+})
+
+//above type of code using promise:
+//this is promise chaining
+createOrder(cart).then(function (orderId) {
+   return proceedToPayment(orderId);
+}).then(function(paymentInfo) {
+   return showOrderSummary(paymentInfo);
+}).then(function(paymentInfo) {
+   return updateWalletBalance(paymentInfo);
+})
+
+//using arrow functions above ex
+createOrder(cart).then(orderId => proceedToPayment(orderId))
+.then(paymentInfo => showOrderSummary(paymentInfo))
+.then(paymentInfo => updateWalletBalance(paymentInfo));
+
+
+const prommise = createOrder(cart);
+promise.then(function(orderId) {
+    console.log(orderId);
+    proceedToPayment(orderId);
+}).catch(function(error) {
+    console.log(error);
+})
+
+function createOrder(cart) {
+    const pr = new Promise((resolve, reject) => {
+        if(validateCart(cart)) {
+            const err =  new Error('Cart is not valid')
+            reject(err);
+        }
+        const orderId = '12345';
+        if(orderId) {
+            resolve(orderId);
+        }
+    });
+    return pr;
+}
+
+function validateCart(cart) {
+    return true;
+}
