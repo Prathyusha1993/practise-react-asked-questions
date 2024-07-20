@@ -14,7 +14,7 @@ function sayHello1() {
     for (let i=0; i<5; i++){
         console.log(i)
     }
-    console.log(i);
+    // console.log(i);
 }
 sayHello1();
 
@@ -62,7 +62,7 @@ const activeJobs = jobs.filter((job) => job.isActive)
 console.log(activeJobs);
 
 //array functons and this:
-const person = {
+const person12 = {
     talk(){
         var self = this;
         setTimeout(() => {
@@ -71,7 +71,7 @@ const person = {
         
     }
 }
-person.talk();
+person12.talk();
 
 //map: to render a list of items and returns a new array 
 const colors = ['red', 'blue', 'yellow', 'green']
@@ -185,7 +185,7 @@ setInterval(() => {
 let counter = 0;
 setInterval(count, 1000);
 function count() {
-    consoloe.log(counter++);
+    console.log(counter++);
 } //0,1,2,3,4,5,6,.....................
 
 //we need to stop the counter using cleatInterval

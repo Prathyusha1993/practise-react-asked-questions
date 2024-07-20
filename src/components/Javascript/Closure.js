@@ -16,7 +16,7 @@ var z = x();
 console.log(z);
 z();
 
-function z() {
+function z1() {
     var b = 900;
     function x() {
         var a =7;
@@ -27,5 +27,5 @@ function z() {
     }
     x()
 }
-z();
+z1();
 
